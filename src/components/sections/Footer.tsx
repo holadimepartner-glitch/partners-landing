@@ -1,5 +1,6 @@
 import partnersLogoFull from "../../assets/partners-logo-footer.png";
 import * as Icons from "lucide-react";
+import { Link } from "wouter"; // 1. Importamos Link
 
 const navLinks = [
   { label: "Servicios", id: "servicios" },
@@ -35,7 +36,6 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-white/60 hover:bg-primary hover:text-white transition-all duration-200"
               >
-                {/* Cambiado a Info para asegurar que renderice */}
                 <Icons.Info className="w-4 h-4" />
               </a>
               <a
@@ -44,7 +44,6 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-white/60 hover:bg-accent hover:text-white transition-all duration-200"
               >
-                {/* Cambiado a Camera para asegurar que renderice */}
                 <Icons.Camera className="w-4 h-4" />
               </a>
             </div>
@@ -87,9 +86,12 @@ export default function Footer() {
             <h4 className="text-white/90 font-semibold mb-4 text-sm uppercase tracking-widest">Legal</h4>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="text-white/60 hover:text-white transition-colors text-sm">
-                  Política de privacidad
-                </a>
+                {/* 2. Cambiamos el <a> por <Link> apuntando a la ruta que creamos */}
+                <Link href="/politica-de-privacidad">
+                  <a className="text-white/60 hover:text-white transition-colors text-sm cursor-pointer">
+                    Política de privacidad
+                  </a>
+                </Link>
               </li>
               <li>
                 <a href="#" className="text-white/60 hover:text-white transition-colors text-sm">
