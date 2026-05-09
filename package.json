@@ -17,7 +17,15 @@
     "lucide-react": "latest",
     "clsx": "latest",
     "tailwind-merge": "latest",
-    "tailwindcss-animate": "latest"
+    "tailwindcss-animate": "latest",
+    "@radix-ui/react-tooltip": "latest",
+    "@radix-ui/react-dialog": "latest",
+    "@radix-ui/react-slot": "latest",
+    "@radix-ui/react-popover": "latest",
+    "@radix-ui/react-dropdown-menu": "latest",
+    "@radix-ui/react-label": "latest",
+    "@radix-ui/react-separator": "latest",
+    "@radix-ui/react-scroll-area": "latest"
   },
   "devDependencies": {
     "@types/react": "^18.3.1",
