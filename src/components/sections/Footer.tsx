@@ -1,6 +1,5 @@
 import partnersLogoFull from "../../assets/partners-logo-footer.png";
 import { Linkedin, Instagram } from "lucide-react";
-
 const navLinks = [
   { label: "Servicios", id: "servicios" },
   { label: "Metodología", id: "metodologia" },
