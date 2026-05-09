@@ -1,4 +1,4 @@
-import partnersLogoFull from "@assets/Partners_Post_(2)_1778287275688.png";
+import partnersLogoFull from "@assets/partners-logo-footer.png";
 import { Linkedin, Instagram } from "lucide-react";
 
 const navLinks = [
