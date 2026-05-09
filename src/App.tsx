@@ -19,7 +19,7 @@ import CalendlyWidget from "@/components/CalendlyWidget";
 const queryClient = new QueryClient();
 
 // --- COMPONENTE DE LA PÁGINA DE POLÍTICA DE PRIVACIDAD ---
-function PrivacyPolicy() {
+function privacypolicy() {
   return (
     <div className="min-h-screen bg-white">
       <nav className="border-b bg-gray-50 py-4">
@@ -100,7 +100,7 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      <Route path="/politica-de-privacidad" component={privacypolicy} />
+      <Route path="/politica-de-privacidad" component={privacypolicy.tsx} />
       <Route component={NotFound} />
     </Switch>
   );
