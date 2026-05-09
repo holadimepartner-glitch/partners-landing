@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import partnersLogo from "@assets/Partners_Post_(1)_1778286676702.png";
+import partnersLogo from "@assets/partners-logo.png";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
