@@ -101,7 +101,7 @@ export default function Footer() {
 
         <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white/40 text-sm">
-            © 2026 Partners Agency. Todos los derechos reservados.
+            © 2026 Partners. Todos los derechos reservados.
           </p>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
