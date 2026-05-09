@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
+import PrivacyPolicy from "@/pages/PrivacyPolicy"; // Importamos tu nueva página
 import Navbar from "@/components/sections/Navbar";
 import Hero from "@/components/sections/Hero";
 import LogoBar from "@/components/sections/LogoBar";
@@ -43,6 +44,8 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      {/* Añadimos la ruta hacia tu archivo en pages */}
+      <Route path="/politica-de-privacidad" component={PrivacyPolicy} />
       <Route component={NotFound} />
     </Switch>
   );
