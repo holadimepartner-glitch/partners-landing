@@ -1,6 +1,5 @@
-import { Switch, Route, Router as WouterRouter, Link } from "wouter";
+import { Switch, Route, Link } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-// Importaciones con rutas relativas
 import { Toaster } from "./components/ui/toaster";
 import { TooltipProvider } from "./components/ui/tooltip";
 import NotFound from "./pages/not-found";
@@ -10,7 +9,7 @@ import Footer from "./components/sections/Footer";
 
 const queryClient = new QueryClient();
 
-// 1. COMPONENTE DE TÉRMINOS (Definido una sola vez)
+// 1. COMPONENTE DE TÉRMINOS
 function TermsOfServicePage() {
   return (
     <div className="min-h-screen bg-white font-jakarta">
@@ -33,7 +32,6 @@ function TermsOfServicePage() {
           <p>
             Este sitio es para proporcionar información sobre nuestros servicios de marketing B2B y automatización. Queda prohibido el uso indebido de los contenidos aquí presentados.
           </p>
-          {/* Puedes añadir más texto legal aquí si lo necesitas */}
         </div>
       </article>
       <Footer />
@@ -41,26 +39,18 @@ function TermsOfServicePage() {
   );
 }
 
-// 2. ENRUTADOR (Definido una sola vez)
-function Router() {
-  return (
-    <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/politica-de-privacidad" component={PrivacyPolicy} />
-      <Route path="/terminos-de-servicio" component={TermsOfServicePage} />
-      <Route component={NotFound} />
-    </Switch>
-  );
-}
-
-// 3. APP PRINCIPAL
+// 2. APP PRINCIPAL (Enrutamiento simplificado)
 export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <WouterRouter>
-          <Router />
-        </WouterRouter>
+        {/* Eliminamos WouterRouter innecesario y usamos Switch directamente */}
+        <Switch>
+          <Route path="/" component={Home} />
+          <Route path="/politica-de-privacidad" component={PrivacyPolicy} />
+          <Route path="/terminos-de-servicio" component={TermsOfServicePage} />
+          <Route component={NotFound} />
+        </Switch>
         <Toaster />
       </TooltipProvider>
     </QueryClientProvider>
