@@ -35,8 +35,8 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-white/60 hover:bg-primary hover:text-white transition-all duration-200"
               >
-                {/* Aquí usamos el punto para llamar al icono sin errores */}
-                <Icons.Linkedin className="w-4 h-4" />
+                {/* Cambiado a Info para asegurar que renderice */}
+                <Icons.Info className="w-4 h-4" />
               </a>
               <a
                 href="https://instagram.com"
@@ -44,7 +44,8 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-white/60 hover:bg-accent hover:text-white transition-all duration-200"
               >
-                <Icons.Instagram className="w-4 h-4" />
+                {/* Cambiado a Camera para asegurar que renderice */}
+                <Icons.Camera className="w-4 h-4" />
               </a>
             </div>
           </div>
