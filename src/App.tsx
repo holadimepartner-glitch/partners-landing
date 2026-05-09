@@ -15,12 +15,12 @@ import FAQ from "@/components/sections/FAQ";
 import ContactForm from "@/components/sections/ContactForm";
 import Footer from "@/components/sections/Footer";
 import CalendlyWidget from "@/components/CalendlyWidget";
-import PrivacyPolicy from "./pages/privacypolicy";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 const queryClient = new QueryClient();
 
 // --- COMPONENTE DE LA PÁGINA DE POLÍTICA DE PRIVACIDAD ---
-function privacypolicy() {
+function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-white">
       <nav className="border-b bg-gray-50 py-4">
