@@ -1,57 +1,47 @@
 import { Switch, Route, Router as WouterRouter, Link } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-// Importaciones con rutas relativas para evitar errores de carga
+// Importaciones con rutas relativas
 import { Toaster } from "./components/ui/toaster";
 import { TooltipProvider } from "./components/ui/tooltip";
 import NotFound from "./pages/not-found";
 import Home from "./pages/Home"; 
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Footer from "./components/sections/Footer";
-const TermsOfServicePage = () => (
-  <div className="min-h-screen bg-white">
-    <div className="p-20 text-black text-3xl font-bold">
-      Si ves esto, el enrutador funciona.
-    </div>
-  </div>
-);
 
-function Router() {
-  return (
-    <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/politica-de-privacidad" component={PrivacyPolicy} />
-      
-      {/* Cambiamos esto para que sea una ruta simple con componente directo */}
-      <Route path="/terminos-de-servicio" component={TermsOfServicePage} />
-      
-      <Route component={NotFound} />
-    </Switch>
-  );
-}
 const queryClient = new QueryClient();
 
-// Componente integrado para evitar fallos de archivo externo
+// 1. COMPONENTE DE TÉRMINOS (Definido una sola vez)
 function TermsOfServicePage() {
   return (
     <div className="min-h-screen bg-white font-jakarta">
       <nav className="border-b bg-gray-50 py-4 sticky top-0 z-50">
         <div className="container mx-auto px-6">
           <Link href="/">
-            <a className="text-blue-600 font-bold flex items-center gap-2 cursor-pointer">
+            <a className="text-blue-600 font-bold flex items-center gap-2 cursor-pointer hover:text-blue-800 transition-colors">
               ← Volver a Partners
             </a>
           </Link>
         </div>
       </nav>
       <article className="container mx-auto px-6 py-16 max-w-4xl text-gray-800">
-        <h1 className="text-4xl font-extrabold mb-8">Términos de Servicio</h1>
-        <p className="mb-4">Al usar este sitio, aceptas nuestros términos...</p>
+        <h1 className="text-4xl font-extrabold mb-8 text-gray-900">Términos de Servicio</h1>
+        <div className="prose prose-blue max-w-none text-lg leading-relaxed">
+          <p className="mb-4">
+            Bienvenido a Partners. Al acceder a nuestro sitio web y utilizar nuestros servicios, usted acepta cumplir con los siguientes términos y condiciones.
+          </p>
+          <h2 className="text-2xl font-bold mt-8 mb-4">Uso del Sitio</h2>
+          <p>
+            Este sitio es para proporcionar información sobre nuestros servicios de marketing B2B y automatización. Queda prohibido el uso indebido de los contenidos aquí presentados.
+          </p>
+          {/* Puedes añadir más texto legal aquí si lo necesitas */}
+        </div>
       </article>
       <Footer />
     </div>
   );
 }
 
+// 2. ENRUTADOR (Definido una sola vez)
 function Router() {
   return (
     <Switch>
@@ -63,6 +53,7 @@ function Router() {
   );
 }
 
+// 3. APP PRINCIPAL
 export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
