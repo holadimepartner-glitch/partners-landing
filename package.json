@@ -1,12 +1,11 @@
 {
-  "name": "proyecto-replit-vercel",
+  "name": "proyecto-replit",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -41,9 +40,6 @@
     "tailwindcss-animate": "latest"
   },
   "devDependencies": {
-    "@types/node": "^20.x",
-    "@types/react": "^18.3.1",
-    "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "latest",
     "autoprefixer": "latest",
     "postcss": "latest",
