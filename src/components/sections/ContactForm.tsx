@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Shield, Clock, Lock, CheckCircle2, AlertCircle } from "lucide-react";
+import { Shield, Clock, Lock, CheckCircle2, AlertCircle } from "lucide-center";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -66,11 +66,12 @@ export default function ContactForm() {
           "Content-Type": "application/json",
           "Accept": "application/json"
         },
+        // Enviamos los campos con nombres simples para evitar errores de validación en Formspree
         body: JSON.stringify({
-          nombre: values.name,
+          name: values.name,
           email: values.email,
-          sitio_web: values.website,
-          recurso_solicitado: values.leadMagnet
+          website: values.website,
+          message: `Recurso solicitado: ${values.leadMagnet}`
         }),
       });
 
@@ -79,14 +80,10 @@ export default function ContactForm() {
         form.reset();
       } else {
         const data = await response.json();
-        if (Object.hasOwn(data, 'errors')) {
-          setError(data["errors"].map((error: any) => error["message"]).join(", "));
-        } else {
-          setError("Hubo un problema al enviar. Por favor, inténtalo de nuevo.");
-        }
+        setError(data.errors ? data.errors.map((e: any) => e.message).join(", ") : "Error al enviar el formulario.");
       }
     } catch (err) {
-      setError("Error de conexión. Revisa tu internet o intenta más tarde.");
+      setError("Error de conexión. Inténtalo de nuevo más tarde.");
     } finally {
       setIsSubmitting(false);
     }
