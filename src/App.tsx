@@ -7,7 +7,27 @@ import NotFound from "./pages/not-found";
 import Home from "./pages/Home"; 
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Footer from "./components/sections/Footer";
+const TermsOfServicePage = () => (
+  <div className="min-h-screen bg-white">
+    <div className="p-20 text-black text-3xl font-bold">
+      Si ves esto, el enrutador funciona.
+    </div>
+  </div>
+);
 
+function Router() {
+  return (
+    <Switch>
+      <Route path="/" component={Home} />
+      <Route path="/politica-de-privacidad" component={PrivacyPolicy} />
+      <Route path="/terminos-de-servicio">
+        {/* Usar una función anónima a veces ayuda a forzar el render en Wouter */}
+        {() => <TermsOfServicePage />}
+      </Route>
+      <Route component={NotFound} />
+    </Switch>
+  );
+}
 const queryClient = new QueryClient();
 
 // Componente integrado para evitar fallos de archivo externo
