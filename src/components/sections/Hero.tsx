@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { BarChart3, TrendingUp, Users, ArrowRight } from "lucide-react";
-import ruth from "@assets/Ruth_Abuerbach_1778287286088.png";
-import antony from "@assets/Antony_Yacoub_1778287286094.png";
-import fernando from "@assets/Fernando_Chiu_1778287286096.png";
-import adam from "@assets/Adam_Sullivan_1778287286098.png";
+import ruth from "@assets/ruth-auerbach.png";
+import antony from "@assets/antony-yacoub.png";
+import fernando from "@assets/fernando-chiu.png";
+import adam from "@assets/adam-sullivan.png";
 
 const teamPhotos = [
   { src: ruth, alt: "Ejecutiva de marketing" },
