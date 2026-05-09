@@ -1,9 +1,9 @@
-import reavlyLogo from "@assets/56_1778287372740.png";
-import labiaLogo from "@assets/57_1778287372741.png";
-import resenameLogo from "@assets/58_1778287372743.png";
-import s3Logo from "@assets/59_1778287372745.png";
-import corpusMundumLogo from "@assets/60_1778287372747.png";
-import jewelryLogo from "@assets/61_1778287372748.png";
+import reavlyLogo from "@assets/reavly-logo.png";
+import labiaLogo from "@assets/labia-logo.png";
+import resenameLogo from "@assets/resename-logo.png";
+import s3Logo from "@assets/s3-logo.png";
+import corpusMundumLogo from "@assets/corpus-mundum-logo.png";
+import jewelryLogo from "@assets/oa-jewelry-logo.png";
 
 const logos = [
   { src: reavlyLogo, alt: "Reavly" },
