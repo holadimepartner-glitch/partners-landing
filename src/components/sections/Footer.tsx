@@ -22,7 +22,7 @@ export default function Footer() {
           <div className="flex flex-col gap-4 max-w-xs">
             <img
               src={partnersLogoFull}
-              alt="Partners Agency"
+              alt="Partners"
               className="h-10 object-contain object-left"
             />
             <p className="text-white/60 text-sm leading-relaxed">
@@ -36,7 +36,7 @@ export default function Footer() {
                 data-testid="link-linkedin"
                 className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-white/60 hover:bg-primary hover:text-white transition-all duration-200"
               >
-                <Linkedin className="w-4 h-4" />
+                <LinkedIn className="w-4 h-4" />
               </a>
               <a
                 href="https://instagram.com"
@@ -102,7 +102,7 @@ export default function Footer() {
 
         <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white/40 text-sm">
-            © 2025 Partners Agency. Todos los derechos reservados.
+            © 2026 Partners Agency. Todos los derechos reservados.
           </p>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
