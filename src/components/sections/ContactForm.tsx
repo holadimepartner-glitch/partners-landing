@@ -18,14 +18,15 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 
 const schema = z.object({
-  name: z.string().min(2, "El nombre debe tener al menos 2 caracteres"),
+  name: z.string().trim().min(2, "El nombre debe tener al menos 2 caracteres"),
   email: z
     .string()
+    .trim()
     .email("Ingresa un email válido")
-    .refine((v) => !v.endsWith("@gmail.com") && !v.endsWith("@hotmail.com") && !v.endsWith("@yahoo.com"), {
+    .refine((v) => !v.toLowerCase().endsWith("@gmail.com") && !v.toLowerCase().endsWith("@hotmail.com") && !v.toLowerCase().endsWith("@yahoo.com"), {
       message: "Por favor usa tu email corporativo",
     }),
-  website: z.string().url("Ingresa una URL válida (ej: https://tuempresa.com)"),
+  website: z.string().trim().url("Ingresa una URL válida (ej: https://tuempresa.com)"),
   leadMagnet: z.enum(["casodeestudio", "whitepaper", "auditoria"], {
     required_error: "Selecciona un recurso",
   }),
@@ -54,7 +55,7 @@ export default function ContactForm() {
     },
   });
 
-  const onSubmit = async (data: FormValues) => {
+  const onSubmit = async (values: FormValues) => {
     setIsSubmitting(true);
     setError(null);
 
@@ -65,17 +66,27 @@ export default function ContactForm() {
           "Content-Type": "application/json",
           "Accept": "application/json"
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          nombre: values.name,
+          email: values.email,
+          sitio_web: values.website,
+          recurso_solicitado: values.leadMagnet
+        }),
       });
 
       if (response.ok) {
         setSubmitted(true);
         form.reset();
       } else {
-        setError("Hubo un problema al enviar. Por favor, inténtalo de nuevo.");
+        const data = await response.json();
+        if (Object.hasOwn(data, 'errors')) {
+          setError(data["errors"].map((error: any) => error["message"]).join(", "));
+        } else {
+          setError("Hubo un problema al enviar. Por favor, inténtalo de nuevo.");
+        }
       }
     } catch (err) {
-      setError("Error de conexión. Revisa tu internet.");
+      setError("Error de conexión. Revisa tu internet o intenta más tarde.");
     } finally {
       setIsSubmitting(false);
     }
