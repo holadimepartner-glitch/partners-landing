@@ -14,15 +14,12 @@ export default function Footer() {
 
   const handleNavClick = (id: string) => {
     if (location !== "/") {
-      // Si no estamos en la Home, vamos a la Home primero
       setLocation("/");
-      // Esperamos un instante a que cargue y scrolleamos
       setTimeout(() => {
         const el = document.getElementById(id);
         if (el) el.scrollIntoView({ behavior: "smooth" });
       }, 100);
     } else {
-      // Si ya estamos en la Home, scroll suave directo
       const el = document.getElementById(id);
       if (el) el.scrollIntoView({ behavior: "smooth" });
     }
@@ -100,14 +97,15 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <Link href="/politica-de-privacidad">
-                  <a className="text-white/60 hover:text-white transition-colors text-sm cursor-pointer">
+                  <a className="text-white/60 hover:text-white transition-colors text-sm cursor-pointer block">
                     Política de privacidad
                   </a>
                 </Link>
               </li>
               <li>
+                {/* Enlace verificado para coincidir con la ruta de App.tsx */}
                 <Link href="/terminos-de-servicio">
-                  <a className="text-white/60 hover:text-white transition-colors text-sm cursor-pointer">
+                  <a className="text-white/60 hover:text-white transition-colors text-sm cursor-pointer block">
                     Términos de servicio
                   </a>
                 </Link>
