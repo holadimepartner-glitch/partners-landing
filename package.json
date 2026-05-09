@@ -1,5 +1,5 @@
 {
-  "name": "proyecto-replit",
+  "name": "proyecto-limpio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,6 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@radix-ui/react-accordion": "latest",
+    "@radix-ui/react-alert-dialog": "latest",
+    "@radix-ui/react-aspect-ratio": "latest",
+    "@radix-ui/react-avatar": "latest",
     "@radix-ui/react-checkbox": "latest",
     "@radix-ui/react-collapsible": "latest",
     "@radix-ui/react-context-menu": "latest",
@@ -20,6 +24,7 @@
     "@radix-ui/react-navigation-menu": "latest",
     "@radix-ui/react-popover": "latest",
     "@radix-ui/react-progress": "latest",
+    "@radix-ui/react-radio-group": "latest",
     "@radix-ui/react-scroll-area": "latest",
     "@radix-ui/react-select": "latest",
     "@radix-ui/react-separator": "latest",
@@ -34,12 +39,15 @@
     "class-variance-authority": "latest",
     "clsx": "latest",
     "lucide-react": "latest",
-    "react": "latest",
-    "react-dom": "latest",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "tailwind-merge": "latest",
     "tailwindcss-animate": "latest"
   },
   "devDependencies": {
+    "@types/node": "latest",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "latest",
     "autoprefixer": "latest",
     "postcss": "latest",
