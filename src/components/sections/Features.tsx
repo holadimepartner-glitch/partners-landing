@@ -32,7 +32,7 @@ export default function Features() {
     {
       icon: <Megaphone className="w-6 h-6" />,
       title: "Pauta publicitaria",
-      description: "Maximiza cada peso invertido con campañas de alto rendimiento hiper-segmentadas."
+      description: "Maximiza cada dólar invertido con campañas de alto rendimiento hiper-segmentadas."
     }
   ];
 
