@@ -21,7 +21,6 @@ export default defineConfig({
     },
     dedupe: ["react", "react-dom"],
   },
-  // Quitamos la raíz forzada para que Vite use la carpeta actual
   build: {
     outDir: "dist",
     emptyOutDir: true,
