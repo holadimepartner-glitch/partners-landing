@@ -20,10 +20,10 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/politica-de-privacidad" component={PrivacyPolicy} />
-      <Route path="/terminos-de-servicio">
-        {/* Usar una función anónima a veces ayuda a forzar el render en Wouter */}
-        {() => <TermsOfServicePage />}
-      </Route>
+      
+      {/* Cambiamos esto para que sea una ruta simple con componente directo */}
+      <Route path="/terminos-de-servicio" component={TermsOfServicePage} />
+      
       <Route component={NotFound} />
     </Switch>
   );
