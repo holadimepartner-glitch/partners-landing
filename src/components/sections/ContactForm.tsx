@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Shield, Clock, Lock, CheckCircle2 } from "lucide-react";
+import { Shield, Clock, Lock, CheckCircle2, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -41,6 +41,8 @@ const leadMagnets = [
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const form = useForm<FormValues>({
     resolver: zodResolver(schema),
@@ -52,14 +54,35 @@ export default function ContactForm() {
     },
   });
 
-  const onSubmit = (data: FormValues) => {
-    console.log("Form submitted:", data);
-    setSubmitted(true);
+  const onSubmit = async (data: FormValues) => {
+    setIsSubmitting(true);
+    setError(null);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xrejobgq", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        form.reset();
+      } else {
+        setError("Hubo un problema al enviar. Por favor, inténtalo de nuevo.");
+      }
+    } catch (err) {
+      setError("Error de conexión. Revisa tu internet.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <section id="contacto" className="py-24 bg-foreground overflow-hidden relative">
-      {/* Blobs */}
       <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-primary/10 blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full bg-accent/10 blur-3xl pointer-events-none" />
 
@@ -104,6 +127,13 @@ export default function ContactForm() {
             >
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                  {error && (
+                    <div className="p-4 bg-red-500/20 border border-red-500/50 rounded-lg text-white text-sm flex items-center gap-2 mb-4">
+                      <AlertCircle className="w-4 h-4" />
+                      {error}
+                    </div>
+                  )}
+
                   <FormField
                     control={form.control}
                     name="name"
@@ -113,7 +143,6 @@ export default function ContactForm() {
                         <FormControl>
                           <Input
                             {...field}
-                            data-testid="input-name"
                             placeholder="Tu nombre y apellido"
                             className="bg-white/10 border-white/20 text-white placeholder:text-white/40 focus:border-primary h-12"
                           />
@@ -132,7 +161,6 @@ export default function ContactForm() {
                         <FormControl>
                           <Input
                             {...field}
-                            data-testid="input-email"
                             type="email"
                             placeholder="tu@empresa.com"
                             className="bg-white/10 border-white/20 text-white placeholder:text-white/40 focus:border-primary h-12"
@@ -152,7 +180,6 @@ export default function ContactForm() {
                         <FormControl>
                           <Input
                             {...field}
-                            data-testid="input-website"
                             placeholder="https://tuempresa.com"
                             className="bg-white/10 border-white/20 text-white placeholder:text-white/40 focus:border-primary h-12"
                           />
@@ -185,7 +212,6 @@ export default function ContactForm() {
                                 />
                                 <Label
                                   htmlFor={option.id}
-                                  data-testid={`radio-${option.id}`}
                                   className="flex items-center justify-center p-3 rounded-xl border border-white/20 text-white/70 text-sm font-medium cursor-pointer transition-all peer-data-[state=checked]:border-primary peer-data-[state=checked]:bg-primary/20 peer-data-[state=checked]:text-white hover:border-white/40"
                                 >
                                   {option.label}
@@ -201,18 +227,17 @@ export default function ContactForm() {
 
                   <Button
                     type="submit"
-                    data-testid="button-submit-contact"
                     size="lg"
+                    disabled={isSubmitting}
                     className="w-full h-14 bg-primary text-white hover:bg-primary/90 font-bold text-base shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all hover:scale-[1.02] active:scale-[0.99]"
                   >
-                    Solicitar mi auditoría gratuita
+                    {isSubmitting ? "Enviando..." : "Solicitar mi auditoría gratuita"}
                   </Button>
                 </form>
               </Form>
             </motion.div>
           )}
 
-          {/* Trust signals */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
