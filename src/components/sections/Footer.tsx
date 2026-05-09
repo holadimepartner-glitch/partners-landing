@@ -1,5 +1,5 @@
 import partnersLogoFull from "@assets/partners-logo-footer.png";
-import { LinkedIn, Instagram } from "lucide-react";
+import { Linkedin, Instagram } from "lucide-react";
 
 const navLinks = [
   { label: "Servicios", id: "servicios" },
@@ -36,7 +36,7 @@ export default function Footer() {
                 data-testid="link-linkedin"
                 className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-white/60 hover:bg-primary hover:text-white transition-all duration-200"
               >
-                <LinkedIn className="w-4 h-4" />
+                <Linkedin className="w-4 h-4" />
               </a>
               <a
                 href="https://instagram.com"
