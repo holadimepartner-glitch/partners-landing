@@ -15,6 +15,7 @@ import FAQ from "@/components/sections/FAQ";
 import ContactForm from "@/components/sections/ContactForm";
 import Footer from "@/components/sections/Footer";
 import CalendlyWidget from "@/components/CalendlyWidget";
+import PrivacyPolicy from "./pages/privacypolicy";
 
 const queryClient = new QueryClient();
 
