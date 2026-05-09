@@ -1,6 +1,6 @@
 import partnersLogoFull from "../../assets/partners-logo-footer.png";
 import * as Icons from "lucide-react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 
 const navLinks = [
   { label: "Servicios", id: "servicios" },
@@ -10,9 +10,22 @@ const navLinks = [
 ];
 
 export default function Footer() {
-  const scrollTo = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+  const [location, setLocation] = useLocation();
+
+  const handleNavClick = (id: string) => {
+    if (location !== "/") {
+      // Si no estamos en la Home, vamos a la Home primero
+      setLocation("/");
+      // Esperamos un instante a que cargue y scrolleamos
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    } else {
+      // Si ya estamos en la Home, scroll suave directo
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -56,7 +69,7 @@ export default function Footer() {
               {navLinks.map((link) => (
                 <li key={link.id}>
                   <button
-                    onClick={() => scrollTo(link.id)}
+                    onClick={() => handleNavClick(link.id)}
                     className="text-white/60 hover:text-white transition-colors text-sm"
                   >
                     {link.label}
@@ -93,7 +106,6 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                {/* Agregamos el Link para Términos de Servicio */}
                 <Link href="/terminos-de-servicio">
                   <a className="text-white/60 hover:text-white transition-colors text-sm cursor-pointer">
                     Términos de servicio
