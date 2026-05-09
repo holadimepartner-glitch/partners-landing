@@ -91,28 +91,29 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Legal */}
-          <div>
-            <h4 className="text-white/90 font-semibold mb-4 text-sm uppercase tracking-widest">Legal</h4>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/politica-de-privacidad">
-                  <a className="text-white/60 hover:text-white transition-colors text-sm cursor-pointer block">
-                    Política de privacidad
-                  </a>
-                </Link>
-              </li>
-              <li>
-                {/* Enlace verificado para coincidir con la ruta de App.tsx */}
-                <Link href="/terminos-de-servicio">
-                  <a className="text-white/60 hover:text-white transition-colors text-sm cursor-pointer block">
-                    Términos de servicio
-                  </a>
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
+         {/* Legal */}
+<div>
+  <h4 className="text-white/90 font-semibold mb-4 text-sm uppercase tracking-widest">Legal</h4>
+  <ul className="space-y-3">
+    <li>
+      <Link href="/politica-de-privacidad">
+        <a className="text-white/60 hover:text-white transition-colors text-sm cursor-pointer block">
+          Política de privacidad
+        </a>
+      </Link>
+    </li>
+    <li>
+      <Link href="/terminos-de-servicio">
+        <a 
+          key="link-terminos" 
+          className="text-white/60 hover:text-white transition-colors text-sm cursor-pointer block"
+        >
+          Términos de servicio
+        </a>
+      </Link>
+    </li>
+  </ul>
+</div>
 
         <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white/40 text-sm">
