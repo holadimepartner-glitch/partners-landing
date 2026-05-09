@@ -3,7 +3,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
-import PrivacyPolicy from "@/pages/PrivacyPolicy"; // Importamos tu nueva página
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import Navbar from "@/components/sections/Navbar";
 import Hero from "@/components/sections/Hero";
 import LogoBar from "@/components/sections/LogoBar";
