@@ -1,5 +1,6 @@
 import partnersLogoFull from "../../assets/partners-logo-footer.png";
 import { Linkedin, Instagram } from "lucide-react";
+
 const navLinks = [
   { label: "Servicios", id: "servicios" },
   { label: "Metodología", id: "metodologia" },
@@ -32,7 +33,6 @@ export default function Footer() {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                data-testid="link-linkedin"
                 className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-white/60 hover:bg-primary hover:text-white transition-all duration-200"
               >
                 <Linkedin className="w-4 h-4" />
@@ -41,7 +41,6 @@ export default function Footer() {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                data-testid="link-instagram"
                 className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-white/60 hover:bg-accent hover:text-white transition-all duration-200"
               >
                 <Instagram className="w-4 h-4" />
@@ -101,7 +100,7 @@ export default function Footer() {
 
         <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white/40 text-sm">
-            © 2026 Partners. Todos los derechos reservados.
+            © 2026 Partners Agency. Todos los derechos reservados.
           </p>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
