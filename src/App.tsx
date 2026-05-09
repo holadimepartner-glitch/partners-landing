@@ -4,7 +4,7 @@ import { Toaster } from "./components/ui/toaster";
 import { TooltipProvider } from "./components/ui/tooltip";
 import NotFound from "./pages/not-found";
 import Home from "./pages/Home.tsx"; 
-import PrivacyPolicy from "./pages/PrivacyPolicy";
+import PrivacyPolicy from "./pages/PrivacyPolicy.tsx";
 import Footer from "./components/sections/Footer";
 
 const queryClient = new QueryClient();
