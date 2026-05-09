@@ -28,6 +28,10 @@
     "@radix-ui/react-separator": "latest",
     "@radix-ui/react-scroll-area": "latest",
     "@radix-ui/react-toast": "latest",
+    "@radix-ui/react-radio-group": "latest",
+    "@radix-ui/react-checkbox": "latest",
+    "@radix-ui/react-avatar": "latest",
+    "@radix-ui/react-tabs": "latest",
     "react-hook-form": "^7.51.0",
     "zod": "^3.23.0",
     "@hookform/resolvers": "^3.3.4"
