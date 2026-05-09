@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
-import valentinPhoto from "@assets/Lucía_Faria_1778287286091.png";
-import danielPhoto from "@assets/Luca_Osarewa_1778287286093.png";
+import valentinPhoto from "@assets/lucia-faria.png";
+import danielPhoto from "@assets/luca-osarewa.png";
 
 const testimonials = [
   {
-    name: "Valentina Rojas",
+    name: "Lucía Faria",
     role: "Directora Comercial",
     company: "TechCorp Latam",
     photo: valentinPhoto,
@@ -15,7 +15,7 @@ const testimonials = [
     metricColor: "bg-primary/10 text-primary",
   },
   {
-    name: "Daniel Herrera",
+    name: "Luca Osarewa",
     role: "CEO & Founder",
     company: "Innova Group",
     photo: danielPhoto,
