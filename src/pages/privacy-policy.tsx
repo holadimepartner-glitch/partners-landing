@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import Footer from "@/components/sections/Footer";
 
-export default function privacypolicy() {
+export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-white font-jakarta">
       <nav className="border-b bg-gray-50 py-4 sticky top-0 z-10">
