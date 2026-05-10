@@ -3,9 +3,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "./components/ui/toaster";
 import { TooltipProvider } from "./components/ui/tooltip";
 import NotFound from "./pages/not-found";
-import Home from "./pages/Home.tsx"; 
-import PrivacyPolicy from "./pages/PrivacyPolicy.tsx";
-import Footer from "./components/sections/Footer";
+import Home from "./pages/Home"; 
+import PrivacyPolicy from "./pages/privacy-policy";
+import NotFound from "./pages/not-found";
 
 const queryClient = new QueryClient();
 
