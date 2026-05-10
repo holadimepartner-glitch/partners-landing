@@ -60,32 +60,28 @@ export default function ContactForm() {
     setError(null);
 
     try {
-      const response = await fetch("https://script.google.com/macros/s/AKfycbzji2D6qoCyG8Fkdy07BLznhn_z20PnCvEoe3KoAnJDzkKPSyOcgmxViS6RNDuUy99t1w/exec", {
+      // Usamos el modo 'no-cors' para conectar con Google Apps Script sin bloqueos de seguridad
+      await fetch("https://script.google.com/macros/s/AKfycbzji2D6qoCyG8Fkdy07BLznhn_z20PnCvEoe3KoAnJDzkKPSyOcgmxViS6RNDuUy99t1w/exec", {
         method: "POST",
-  body: JSON.stringify({
-    name: values.name,
-    email: values.email,
-    website: values.website,
-    message: values.leadMagnet
-  }
-        // Enviamos los campos con nombres simples para evitar errores de validación en Formspree
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
           name: values.name,
           email: values.email,
           website: values.website,
-          message: `Recurso solicitado: ${values.leadMagnet}`
+          message: values.leadMagnet
         }),
       });
 
-      if (response.ok) {
-        setSubmitted(true);
-        form.reset();
-      } else {
-        const data = await response.json();
-        setError(data.errors ? data.errors.map((e: any) => e.message).join(", ") : "Error al enviar el formulario.");
-      }
+      // Con no-cors no podemos leer la respuesta, así que si no hay error en la red, marcamos como enviado
+      setSubmitted(true);
+      form.reset();
+      
     } catch (err) {
-      setError("Error de conexión. Inténtalo de nuevo más tarde.");
+      console.error("Error de envío:", err);
+      setError("Hubo un problema al conectar con el servidor. Inténtalo de nuevo.");
     } finally {
       setIsSubmitting(false);
     }
