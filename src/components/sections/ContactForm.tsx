@@ -60,12 +60,14 @@ export default function ContactForm() {
     setError(null);
 
     try {
-      const response = await fetch("https://formspree.io/f/xrejobgq", {
+      const response = await fetch("https://script.google.com/macros/s/AKfycbzji2D6qoCyG8Fkdy07BLznhn_z20PnCvEoe3KoAnJDzkKPSyOcgmxViS6RNDuUy99t1w/exec", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
+  body: JSON.stringify({
+    name: values.name,
+    email: values.email,
+    website: values.website,
+    message: values.leadMagnet
+  }
         // Enviamos los campos con nombres simples para evitar errores de validación en Formspree
         body: JSON.stringify({
           name: values.name,
