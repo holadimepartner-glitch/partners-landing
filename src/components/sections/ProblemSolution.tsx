@@ -11,7 +11,7 @@ export default function ProblemSolution() {
 
   const solutions = [
     "Estrategia y ejecución completa a cargo de Partners",
-    "Dashboards en tiempo real para cada peso invertido",
+    "Dashboards en tiempo real para cada dólar invertido",
     "Reportes de KPIs orientados a retorno de inversión",
     "Framework probado que acelera el crecimiento"
   ];
