@@ -105,7 +105,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="relative lg:ml-auto w-full max-w-[600px]"
           >
-            {/* Floating metric pills */}
+            {/* 1. ROI Pill: Arriba a la izquierda (Zona segura) */}
             <motion.div
               className="absolute -top-6 -left-4 bg-background p-3.5 rounded-xl shadow-xl border border-border/50 z-20 flex items-center gap-3"
               animate={{ y: [0, -10, 0] }}
@@ -120,8 +120,9 @@ export default function Hero() {
               </div>
             </motion.div>
 
+            {/* 2. Leads Pill: Movida al extremo inferior derecho para no tapar subtítulos */}
             <motion.div
-              className="absolute top-1/2 -right-6 bg-background p-3.5 rounded-xl shadow-xl border border-border/50 z-20 flex items-center gap-3"
+              className="absolute -bottom-2 -right-6 bg-background p-3.5 rounded-xl shadow-xl border border-border/50 z-20 flex items-center gap-3"
               animate={{ y: [0, 14, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
             >
@@ -146,17 +147,17 @@ export default function Hero() {
                 title="DimePartner VSL"
               ></iframe>
 
-              {/* Hover Badge Indicator */}
-              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 pointer-events-none">
+              {/* Hover Badge Indicator - Subido un poco más (bottom-12) para no pisar la barra de progreso */}
+              <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-30 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 pointer-events-none">
                 <Badge className="bg-primary/90 backdrop-blur-md border-none text-white px-4 py-1.5 shadow-lg">
                   Click para activar sonido 🔊
                 </Badge>
               </div>
             </div>
 
-            {/* Bottom floating pill */}
+            {/* 3. Retención Pill: Movida más abajo y al extremo izquierdo */}
             <motion.div
-              className="absolute -bottom-4 left-8 bg-background p-3.5 rounded-xl shadow-xl border border-border/50 z-20 flex items-center gap-3"
+              className="absolute -bottom-10 -left-2 bg-background p-3.5 rounded-xl shadow-xl border border-border/50 z-20 flex items-center gap-3"
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
             >
