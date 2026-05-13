@@ -98,45 +98,15 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Right Column: VSL Video Player + Floating Pills */}
+          {/* Right Column: VSL Video Player + Floating/Linear Pills */}
           <motion.div
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="relative lg:ml-auto w-full max-w-[600px]"
+            className="relative lg:ml-auto w-full max-w-[600px] flex flex-col gap-4"
           >
-            {/* 1. ROI Pill */}
-            <motion.div
-              className="absolute -top-6 -left-4 bg-background p-3.5 rounded-xl shadow-xl border border-border/50 z-20 flex items-center gap-3"
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <div className="bg-green-100 p-2 rounded-lg text-green-600">
-                <TrendingUp className="w-5 h-5" />
-              </div>
-              <div>
-                <p className="text-xs text-muted-foreground font-medium">ROI Promedio</p>
-                <p className="text-lg font-bold text-foreground">4.2x</p>
-              </div>
-            </motion.div>
-
-            {/* 2. Leads Pill */}
-            <motion.div
-              className="absolute -bottom-2 -right-6 bg-background p-3.5 rounded-xl shadow-xl border border-border/50 z-20 flex items-center gap-3"
-              animate={{ y: [0, 14, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            >
-              <div className="bg-blue-100 p-2 rounded-lg text-primary">
-                <Users className="w-5 h-5" />
-              </div>
-              <div>
-                <p className="text-xs text-muted-foreground font-medium">Nuevos Leads</p>
-                <p className="text-lg font-bold text-foreground">+127%</p>
-              </div>
-            </motion.div>
-
-            {/* Video Container (Marco Gris Clarito + Autoplay) */}
-            <div className="relative z-10 rounded-2xl overflow-hidden border-[6px] border-slate-200/40 shadow-2xl bg-black aspect-video group cursor-pointer">
+            {/* Video Container (Marco Delgado/Minimalista) */}
+            <div className="relative z-10 rounded-2xl overflow-hidden border border-slate-200/20 ring-1 ring-slate-200/10 shadow-2xl bg-black aspect-video group cursor-pointer order-1 lg:order-none">
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent pointer-events-none z-20" />
               
               <iframe 
@@ -147,7 +117,6 @@ export default function Hero() {
                 title="DimePartner VSL"
               ></iframe>
 
-              {/* Hover Badge Indicator */}
               <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-30 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 pointer-events-none">
                 <Badge className="bg-primary/90 backdrop-blur-md border-none text-white px-4 py-1.5 shadow-lg">
                   Click para activar sonido 🔊
@@ -155,23 +124,58 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* 3. Retención Pill */}
-            <motion.div
-              className="absolute -bottom-10 -left-2 bg-background p-3.5 rounded-xl shadow-xl border border-border/50 z-20 flex items-center gap-3"
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-            >
-              <div className="bg-pink-100 p-2 rounded-lg text-accent">
-                <BarChart3 className="w-5 h-5" />
-              </div>
-              <div>
-                <p className="text-xs text-muted-foreground font-medium">Retención</p>
-                <p className="text-lg font-bold text-foreground">98%</p>
-              </div>
-            </motion.div>
+            {/* Pills Container: En móvil se vuelven una fila debajo, en PC flotan */}
+            <div className="flex flex-wrap lg:contents gap-3 order-2 lg:order-none justify-center">
+              
+              {/* ROI Pill */}
+              <motion.div
+                className="static lg:absolute lg:-top-6 lg:-left-4 bg-background p-3 lg:p-3.5 rounded-xl shadow-md lg:shadow-xl border border-border/50 z-20 flex items-center gap-3 min-w-[140px]"
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <div className="bg-green-100 p-2 rounded-lg text-green-600">
+                  <TrendingUp className="w-4 h-4 lg:w-5 lg:h-5" />
+                </div>
+                <div>
+                  <p className="text-[10px] lg:text-xs text-muted-foreground font-medium">ROI</p>
+                  <p className="text-sm lg:text-lg font-bold text-foreground">4.2x</p>
+                </div>
+              </motion.div>
 
-            {/* Glow effect behind video */}
-            <div className="absolute inset-0 bg-primary/20 blur-[80px] rounded-full -z-10 animate-pulse" />
+              {/* Leads Pill */}
+              <motion.div
+                className="static lg:absolute lg:-bottom-2 lg:-right-6 bg-background p-3 lg:p-3.5 rounded-xl shadow-md lg:shadow-xl border border-border/50 z-20 flex items-center gap-3 min-w-[140px]"
+                animate={{ y: [0, 14, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              >
+                <div className="bg-blue-100 p-2 rounded-lg text-primary">
+                  <Users className="w-4 h-4 lg:w-5 lg:h-5" />
+                </div>
+                <div>
+                  <p className="text-[10px] lg:text-xs text-muted-foreground font-medium">Leads</p>
+                  <p className="text-sm lg:text-lg font-bold text-foreground">+127%</p>
+                </div>
+              </motion.div>
+
+              {/* Retención Pill */}
+              <motion.div
+                className="static lg:absolute lg:-bottom-10 lg:-left-2 bg-background p-3 lg:p-3.5 rounded-xl shadow-md lg:shadow-xl border border-border/50 z-20 flex items-center gap-3 min-w-[140px]"
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+              >
+                <div className="bg-pink-100 p-2 rounded-lg text-accent">
+                  <BarChart3 className="w-4 h-4 lg:w-5 lg:h-5" />
+                </div>
+                <div>
+                  <p className="text-[10px] lg:text-xs text-muted-foreground font-medium">Retención</p>
+                  <p className="text-sm lg:text-lg font-bold text-foreground">98%</p>
+                </div>
+              </motion.div>
+
+            </div>
+
+            {/* Glow effect behind video (Oculto en móvil para ahorrar recursos) */}
+            <div className="hidden lg:block absolute inset-0 bg-primary/20 blur-[80px] rounded-full -z-10 animate-pulse" />
           </motion.div>
           
         </div>
