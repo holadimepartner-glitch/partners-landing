@@ -20,7 +20,7 @@ export default function Hero() {
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
-  // Componente de botones para no repetir código
+  // Componente de botones centralizado con el link a testimonios corregido
   const CTAButtons = ({ className }: { className?: string }) => (
     <div className={className}>
       <div className="flex flex-col sm:flex-row gap-4 w-full">
@@ -34,7 +34,7 @@ export default function Hero() {
         <Button
           size="lg"
           variant="outline"
-          onClick={() => scrollTo("metodologia")}
+          onClick={() => scrollTo("testimonials")} // <-- CAMBIO AQUÍ
           className="font-semibold transition-all hover:-translate-y-1 h-14 px-8 text-base group w-full sm:w-auto"
         >
           Ver casos de éxito
@@ -83,7 +83,7 @@ export default function Hero() {
               Generamos leads calificados, automatizamos procesos y escalamos tu negocio con estrategias medibles.
             </p>
 
-            {/* CTA para Web (Oculto en móvil) */}
+            {/* CTA para Web */}
             <CTAButtons className="hidden lg:block w-full" />
           </motion.div>
 
@@ -94,7 +94,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative w-full max-w-[600px] flex flex-col gap-6 lg:ml-auto"
           >
-            {/* Video Container */}
+            {/* Video Container (Marco delgado) */}
             <div className="relative z-10 rounded-2xl overflow-hidden border border-slate-200/20 shadow-2xl bg-black aspect-video group cursor-pointer">
               <iframe 
                 src="https://player.vimeo.com/video/1191752584?background=1&autoplay=1&loop=1&muted=1&controls=1" 
@@ -106,7 +106,7 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Pills Container */}
+            {/* Pills Container (Con animaciones Motion) */}
             <div className="flex flex-wrap lg:contents gap-3 justify-center lg:justify-start">
               <motion.div 
                 className="static lg:absolute lg:-top-6 lg:-left-4 bg-background p-3 rounded-xl shadow-md border border-border/50 z-20 flex items-center gap-3 min-w-[130px]"
@@ -136,7 +136,7 @@ export default function Hero() {
               </motion.div>
             </div>
 
-            {/* CTA para Móvil (Oculto en escritorio) */}
+            {/* CTA para Móvil */}
             <CTAButtons className="block lg:hidden w-full mt-4" />
           </motion.div>
           
