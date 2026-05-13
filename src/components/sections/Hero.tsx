@@ -105,7 +105,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="relative lg:ml-auto w-full max-w-[600px]"
           >
-            {/* Floating metric pills (Se mantienen para dar contexto al vídeo) */}
+            {/* Floating metric pills */}
             <motion.div
               className="absolute -top-6 -left-4 bg-background p-3.5 rounded-xl shadow-xl border border-border/50 z-20 flex items-center gap-3"
               animate={{ y: [0, -10, 0] }}
@@ -134,17 +134,24 @@ export default function Hero() {
               </div>
             </motion.div>
 
-            {/* Video Container (Reemplaza el Dashboard Card) */}
-            <div className="relative z-10 rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black aspect-video group">
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent pointer-events-none z-0" />
+            {/* Video Container (Autoplay Loop + Controls) */}
+            <div className="relative z-10 rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black aspect-video group cursor-pointer">
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent pointer-events-none z-20" />
               
               <iframe 
-                src="https://player.vimeo.com/video/1191752584?badge=0&autopause=0&player_id=0&app_id=58479&color=0070f3" 
+                src="https://player.vimeo.com/video/1191752584?background=1&autoplay=1&loop=1&muted=1&controls=1&title=0&byline=0&portrait=0" 
                 frameBorder="0" 
-                allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
-                className="absolute top-0 left-0 w-full h-full z-10"
+                allow="autoplay; fullscreen; picture-in-picture" 
+                className="absolute top-0 left-0 w-full h-full z-10 scale-[1.01]"
                 title="DimePartner VSL"
               ></iframe>
+
+              {/* Hover Badge Indicator */}
+              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 pointer-events-none">
+                <Badge className="bg-primary/90 backdrop-blur-md border-none text-white px-4 py-1.5 shadow-lg">
+                  Click para activar sonido 🔊
+                </Badge>
+              </div>
             </div>
 
             {/* Bottom floating pill */}
