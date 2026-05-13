@@ -22,12 +22,13 @@ export default function Hero() {
 
   return (
     <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-background">
-      {/* Abstract gradient blob */}
+      {/* Abstract gradient blobs */}
       <div className="absolute top-1/3 right-0 w-[700px] h-[700px] opacity-25 blur-[120px] pointer-events-none rounded-full bg-gradient-to-tr from-primary/50 to-accent/40" />
       <div className="absolute top-0 left-0 w-[400px] h-[400px] opacity-15 blur-[100px] pointer-events-none rounded-full bg-primary/30" />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
+          
           {/* Left Column: Copy */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -56,7 +57,6 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-12">
               <Button
                 size="lg"
-                data-testid="button-hero-primary"
                 onClick={() => scrollTo("contacto")}
                 className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/35 transition-all hover:-translate-y-1 h-14 px-8 text-base"
               >
@@ -65,7 +65,6 @@ export default function Hero() {
               <Button
                 size="lg"
                 variant="outline"
-                data-testid="button-hero-secondary"
                 onClick={() => scrollTo("metodologia")}
                 className="font-semibold transition-all hover:-translate-y-1 h-14 px-8 text-base group border-border"
               >
@@ -74,7 +73,7 @@ export default function Hero() {
               </Button>
             </div>
 
-            {/* Trust row: avatars + company names */}
+            {/* Trust row */}
             <div className="flex flex-col gap-3">
               <div className="flex items-center gap-3">
                 <div className="flex -space-x-3">
@@ -86,7 +85,7 @@ export default function Hero() {
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: 0.4 + i * 0.1, duration: 0.4 }}
-                      className="w-10 h-10 rounded-full object-cover ring-2 ring-white border border-border/20"
+                      className="w-10 h-10 rounded-full object-cover ring-2 ring-background border border-border/20"
                       style={{ objectPosition: "top" }}
                     />
                   ))}
@@ -99,16 +98,16 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Right Column: Dashboard Mockup + Photo Grid */}
+          {/* Right Column: VSL Video Player + Floating Pills */}
           <motion.div
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="relative lg:ml-auto w-full max-w-[580px]"
+            className="relative lg:ml-auto w-full max-w-[600px]"
           >
-            {/* Floating metric pills */}
+            {/* Floating metric pills (Se mantienen para dar contexto al vídeo) */}
             <motion.div
-              className="absolute -top-6 -left-4 bg-white p-3.5 rounded-xl shadow-xl border border-border/50 z-20 flex items-center gap-3"
+              className="absolute -top-6 -left-4 bg-background p-3.5 rounded-xl shadow-xl border border-border/50 z-20 flex items-center gap-3"
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             >
@@ -122,7 +121,7 @@ export default function Hero() {
             </motion.div>
 
             <motion.div
-              className="absolute top-1/2 -right-6 bg-white p-3.5 rounded-xl shadow-xl border border-border/50 z-20 flex items-center gap-3"
+              className="absolute top-1/2 -right-6 bg-background p-3.5 rounded-xl shadow-xl border border-border/50 z-20 flex items-center gap-3"
               animate={{ y: [0, 14, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
             >
@@ -135,8 +134,22 @@ export default function Hero() {
               </div>
             </motion.div>
 
+            {/* Video Container (Reemplaza el Dashboard Card) */}
+            <div className="relative z-10 rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black aspect-video group">
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent pointer-events-none z-0" />
+              
+              <iframe 
+                src="https://player.vimeo.com/video/1191752584?badge=0&autopause=0&player_id=0&app_id=58479&color=0070f3" 
+                frameBorder="0" 
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
+                className="absolute top-0 left-0 w-full h-full z-10"
+                title="DimePartner VSL"
+              ></iframe>
+            </div>
+
+            {/* Bottom floating pill */}
             <motion.div
-              className="absolute -bottom-4 left-8 bg-white p-3.5 rounded-xl shadow-xl border border-border/50 z-20 flex items-center gap-3"
+              className="absolute -bottom-4 left-8 bg-background p-3.5 rounded-xl shadow-xl border border-border/50 z-20 flex items-center gap-3"
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
             >
@@ -149,86 +162,10 @@ export default function Hero() {
               </div>
             </motion.div>
 
-            {/* Main dashboard card */}
-            <div className="bg-[#171c2d] rounded-2xl p-6 shadow-2xl relative z-10 overflow-hidden border border-white/10 animate-float">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
-
-              {/* Dashboard header */}
-              <div className="flex justify-between items-center mb-6 border-b border-white/10 pb-4">
-                <div className="flex gap-1.5">
-                  <div className="w-3 h-3 rounded-full bg-red-400" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                  <div className="w-3 h-3 rounded-full bg-green-400" />
-                </div>
-                <div className="text-white/50 text-xs font-mono">partners-dashboard.app</div>
-              </div>
-
-              {/* Photo grid row */}
-              <div className="grid grid-cols-4 gap-2 mb-6">
-                {teamPhotos.map((photo, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.6 + i * 0.1, duration: 0.4 }}
-                    className="relative aspect-square rounded-xl overflow-hidden ring-1 ring-white/10"
-                  >
-                    <img
-                      src={photo.src}
-                      alt={photo.alt}
-                      className="w-full h-full object-cover object-top"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Metrics */}
-              <div className="space-y-4">
-                <div>
-                  <div className="flex justify-between text-white mb-2">
-                    <span className="text-xs font-medium text-white/60">Conversión de Leads</span>
-                    <span className="text-xs font-bold text-green-400">+24.5%</span>
-                  </div>
-                  <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
-                    <motion.div
-                      initial={{ width: "0%" }}
-                      animate={{ width: "75%" }}
-                      transition={{ duration: 1.5, delay: 0.6, ease: "easeOut" }}
-                      className="h-full bg-gradient-to-r from-primary to-accent"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <div className="flex justify-between text-white mb-2">
-                    <span className="text-xs font-medium text-white/60">Costo por Adquisición</span>
-                    <span className="text-xs font-bold text-green-400">-12.3%</span>
-                  </div>
-                  <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
-                    <motion.div
-                      initial={{ width: "0%" }}
-                      animate={{ width: "45%" }}
-                      transition={{ duration: 1.5, delay: 0.8, ease: "easeOut" }}
-                      className="h-full bg-primary"
-                    />
-                  </div>
-                </div>
-
-                {/* Bar chart */}
-                <div className="h-24 mt-4 relative flex items-end justify-between gap-1.5 border-l border-b border-white/10 pl-2">
-                  {[35, 55, 42, 68, 60, 82, 95].map((height, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ height: "0%" }}
-                      animate={{ height: `${height}%` }}
-                      transition={{ duration: 0.8, delay: 0.9 + i * 0.08, ease: "easeOut" }}
-                      className="w-full rounded-t-sm bg-white/15 hover:bg-primary/70 transition-colors cursor-pointer"
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
+            {/* Glow effect behind video */}
+            <div className="absolute inset-0 bg-primary/20 blur-[80px] rounded-full -z-10 animate-pulse" />
           </motion.div>
+          
         </div>
       </div>
     </section>
