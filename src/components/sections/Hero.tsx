@@ -73,7 +73,7 @@ export default function Hero() {
             </Badge>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-[1.08] mb-6 tracking-tight text-left">
-              Convierte tu marketing en tu motor de{" "}
+              Convierte el marketing en tu motor de{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
                 crecimiento más potente
               </span>
