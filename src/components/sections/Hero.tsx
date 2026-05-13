@@ -105,7 +105,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="relative lg:ml-auto w-full max-w-[600px]"
           >
-            {/* 1. ROI Pill: Arriba a la izquierda (Zona segura) */}
+            {/* 1. ROI Pill */}
             <motion.div
               className="absolute -top-6 -left-4 bg-background p-3.5 rounded-xl shadow-xl border border-border/50 z-20 flex items-center gap-3"
               animate={{ y: [0, -10, 0] }}
@@ -120,7 +120,7 @@ export default function Hero() {
               </div>
             </motion.div>
 
-            {/* 2. Leads Pill: Movida al extremo inferior derecho para no tapar subtítulos */}
+            {/* 2. Leads Pill */}
             <motion.div
               className="absolute -bottom-2 -right-6 bg-background p-3.5 rounded-xl shadow-xl border border-border/50 z-20 flex items-center gap-3"
               animate={{ y: [0, 14, 0] }}
@@ -135,8 +135,8 @@ export default function Hero() {
               </div>
             </motion.div>
 
-            {/* Video Container (Autoplay Loop + Controls) */}
-            <div className="relative z-10 rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black aspect-video group cursor-pointer">
+            {/* Video Container (Marco Gris Clarito + Autoplay) */}
+            <div className="relative z-10 rounded-2xl overflow-hidden border-[6px] border-slate-200/40 shadow-2xl bg-black aspect-video group cursor-pointer">
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent pointer-events-none z-20" />
               
               <iframe 
@@ -147,7 +147,7 @@ export default function Hero() {
                 title="DimePartner VSL"
               ></iframe>
 
-              {/* Hover Badge Indicator - Subido un poco más (bottom-12) para no pisar la barra de progreso */}
+              {/* Hover Badge Indicator */}
               <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-30 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 pointer-events-none">
                 <Badge className="bg-primary/90 backdrop-blur-md border-none text-white px-4 py-1.5 shadow-lg">
                   Click para activar sonido 🔊
@@ -155,7 +155,7 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* 3. Retención Pill: Movida más abajo y al extremo izquierdo */}
+            {/* 3. Retención Pill */}
             <motion.div
               className="absolute -bottom-10 -left-2 bg-background p-3.5 rounded-xl shadow-xl border border-border/50 z-20 flex items-center gap-3"
               animate={{ y: [0, -8, 0] }}
